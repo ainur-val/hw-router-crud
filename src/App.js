@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import PostList from './components/PostList'; // Компонент для отображения списка постов
+import PostNew from './components/PostNew'; // Компонент для создания нового поста
+import PostView from './components/PostView'; // Компонент для просмотра отдельного поста
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          {/* Главная страница - список постов */}
+          <Route exact path="/" element={< PostList />} />
+          {/* Страница создания нового поста */}
+          <Route exact path="/posts/new" element={< PostNew />} />
+          {/* Страница просмотра отдельного поста (с указанием ID) */}
+          <Route exact path="/posts/:postId" element={< PostView />} />
+        </ Routes >
+      </div>
+    </Router>
   );
 }
 
