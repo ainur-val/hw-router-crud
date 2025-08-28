@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import { useState } from 'react';
 
 function PostEdit({ post, setIsEditing }) {
-  const [content, setContent] = useState(post.content); 
-  const history = useNavigate(); 
+  const [content, setContent] = useState(post.content)
 
   const handleSave = async () => {
     try {

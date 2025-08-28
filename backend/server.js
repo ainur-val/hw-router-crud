@@ -17,7 +17,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-let posts = [];
+let posts = [{ id: 0, content: 'text', created: Date.now() }];
 let nextId = 1;
 
 app.get("/posts", (req, res) => {

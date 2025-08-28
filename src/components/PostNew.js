@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom'; 
 
 function PostNew() {
   const [content, setContent] = useState(''); 
-  const history = useNavigate(); 
+  const navigate = useNavigate(); 
 
   const handleSubmit = async (event) => {
     event.preventDefault(); 
@@ -26,15 +26,13 @@ function PostNew() {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
 
-      history.push('/');  
+      navigate('/');  
     } catch (error) {
       console.error('Ошибка при создании поста:', error); 
     }
   };
 
-  const handleCancel = () => {
-    history.push('/'); 
-  };
+  
 
   return (
     <div>

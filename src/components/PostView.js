@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams,useNavigate, Link } from 'react-router-dom'; 
 
 import PostEdit from './PostEdit'; 
@@ -7,7 +7,7 @@ function PostView() {
   const { postId } = useParams(); 
   const [post, setPost] = useState(null); 
   const [isEditing, setIsEditing] = useState(false); 
-  const history = useNavigate(); 
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,14 +19,15 @@ function PostView() {
         }
 
         const data = await response.json();
-        setPost(data); 
+        setPost(data.post);
+        console.log(data); 
       } catch (error) {
         console.error('Ошибка при получении поста:', error); 
-        history.push('/'); 
+        navigate('/'); 
       }
     };
     fetchData(); 
-  }, [postId, history]); 
+  }, [postId, navigate]); 
 
   const handleDelete = async () => {
     try {
@@ -38,7 +39,7 @@ function PostView() {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
 
-      history.push('/'); 
+      navigate('/'); 
     } catch (error) {
       console.error('Ошибка при удалении поста:', error); 
     }
