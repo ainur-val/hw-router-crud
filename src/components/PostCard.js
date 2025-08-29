@@ -6,9 +6,9 @@ function PostCard({ post }) {
   return (
     <div className="post-card">
       <Link to={`/posts/${id}`}>
-        <h3>Пост {id}</h3>
-        <p>{content.substring(0, 50)}...</p>
-        <p>Создан: {created}</p>
+        <h3 className="post-name">Пост {id}</h3>
+        <p className="post-text">{content.substring(0, 50)}...</p>
+        <p className="post-date">Создан: {created}</p>
       </Link>
     </div>
   );

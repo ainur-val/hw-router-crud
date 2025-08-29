@@ -14,7 +14,7 @@ function PostNew() {
         created: new Date().toISOString()  
       };
 
-      const response = await fetch('http://localhost:3000/posts', {
+      const response = await fetch('http://localhost:7070/posts', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -37,8 +37,8 @@ function PostNew() {
   return (
     <div>
       <h1>Новый пост</h1>
-      <form onSubmit={handleSubmit}>
-        <textarea
+      <form className='post-new-form' onSubmit={handleSubmit}>
+        <textarea className='textarea-block'
           value={content}
           onChange={(e) => setContent(e.target.value)} 
           placeholder="Введите контент поста"

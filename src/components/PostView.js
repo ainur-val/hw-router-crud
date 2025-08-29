@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams,useNavigate, Link } from 'react-router-dom'; 
-
-import PostEdit from './PostEdit'; 
+import PostEdit from './PostEdit';
 
 function PostView() {
   const { postId } = useParams(); 
@@ -12,7 +11,7 @@ function PostView() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/posts/${postId}`); 
+        const response = await fetch(`http://localhost:7070/posts/${postId}`); 
 
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -31,7 +30,7 @@ function PostView() {
 
   const handleDelete = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/posts/${postId}`, {
+      const response = await fetch(`http://localhost:7070/posts/${postId}`, {
         method: 'DELETE',
       });
 
@@ -58,7 +57,7 @@ function PostView() {
       <h1>Просмотр поста</h1>
       <h3>Пост {post.id}</h3>
       <p>{post.content}</p>
-      <p>Создан: {post.created}</p>
+      <p className='post-view-date'>Создан: {post.created}</p>
       <button onClick={handleDelete}>Удалить</button>
       <button onClick={() => setIsEditing(true)}>Редактировать</button>
       <Link to="/">

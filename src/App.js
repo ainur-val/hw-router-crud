@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import PostList from './components/PostList'; 
 import PostNew from './components/PostNew'; 
 import PostView from './components/PostView'; 
+import './App.css';
 function App() {
   return (
     <Router>

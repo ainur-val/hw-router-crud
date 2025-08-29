@@ -11,3 +11,139 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.post-card {
+  border: 2px solid blue; 
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  font-family: Arial, sans-serif;
+  margin: 10px;
+}
+
+.post-card a {
+  text-decoration: none;
+  color: blue;
+  display: block;
+}
+
+.post-name {
+  margin-top: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: black;
+}
+
+.post-text {
+  font-size: 16px;
+  color: black;
+}
+
+.post-date { 
+  margin-bottom: 0;
+  font-size: 12px;
+  color: #65676b;
+}
+
+.post-list {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.post-list a {
+    color: white;        
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.post-form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.post-form h1, .post-form h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #1c1e21;
+}
+
+.post-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #dddfe2;
+  border-radius: 5px;
+  font-size: 16px;
+  resize: vertical; /* Разрешаем менять высоту textarea */
+}
+
+.post-form button {
+  background-color: #1877f2;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.post-form button:hover {
+  background-color: #166fe5; 
+}
+
+textarea {
+  width: 30%;
+  min-height: 100px;
+  padding: 10px;
+  border: 2px solid blue;
+  margin: 10px;
+  resize: none;
+}
+
+.post-new-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+background-color: #1877f2;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.post-view-date {
+  margin-bottom: 0;
+  font-size: 12px;
+  color: #65676b;
+  margin-bottom: 10px;
+}
+
+.post-create {
+  color: blue;        
+  padding: 5px 5px;
+  text-decoration: none;
+  border-radius: 5px;
+  border: 2px solid blue;
+}
+
+.edit-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

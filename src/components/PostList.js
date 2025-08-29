@@ -8,7 +8,7 @@ function PostList() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3000/posts'); 
+        const response = await fetch('http://localhost:7070/posts'); 
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -24,7 +24,7 @@ function PostList() {
   return (
     <div>
       <h1>Посты</h1>
-      <Link to="/posts/new">Создать пост</Link>
+      <Link className="post-create" to="/posts/new">Создать пост</Link>
       <div className="post-list">
         {posts.map((post) => (
           <PostCard key={post.id} post={post} /> 
