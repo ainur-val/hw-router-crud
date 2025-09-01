@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { useParams,useNavigate, Link } from 'react-router-dom'; 
+import { useParams,useNavigate, Link } from 'react-router-dom';
+import dayjs from 'dayjs'; 
 import PostEdit from './PostEdit';
 
 function PostView() {
@@ -28,6 +29,10 @@ function PostView() {
     fetchData(); 
   }, [postId, navigate]); 
 
+  const handlePostUpdate = (updatedPostData) => {
+    setPost(updatedPostData);
+  };
+
   const handleDelete = async () => {
     try {
       const response = await fetch(`http://localhost:7070/posts/${postId}`, {
@@ -49,15 +54,18 @@ function PostView() {
   }
 
   if (isEditing) {
-    return <PostEdit post={post} setIsEditing={setIsEditing} />;
+    return <PostEdit post={post} setIsEditing={setIsEditing} onSaveSuccess={handlePostUpdate} />;
   }
+  
+    const unixDate = dayjs(post.created).format('MM/DD/YY');
 
+    
   return (
     <div>
       <h1>Просмотр поста</h1>
       <h3>Пост {post.id}</h3>
       <p>{post.content}</p>
-      <p className='post-view-date'>Создан: {post.created}</p>
+      <p className='post-view-date'>Создан: {unixDate}</p>
       <button onClick={handleDelete}>Удалить</button>
       <button onClick={() => setIsEditing(true)}>Редактировать</button>
       <Link to="/">

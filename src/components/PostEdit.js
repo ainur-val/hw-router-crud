@@ -1,9 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-function PostEdit({ post, setIsEditing }) {
-  const [content, setContent] = useState(post.content)
+function PostEdit({ post, setIsEditing, onSaveSuccess }) {
+  const [content, setContent] = useState(post.content);
+  
+  useEffect(() => {
+    setContent(post.content);
+  }, [post.content]);
 
-  const handleSave = async () => {
+   const handleSave = async () => {
     try {
       const updatedPost = { ...post, content: content }; 
 
@@ -18,8 +22,8 @@ function PostEdit({ post, setIsEditing }) {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-
-      setIsEditing(false); 
+      onSaveSuccess(updatedPost);
+      setIsEditing(false);
     } catch (error) {
       console.error('Ошибка при обновлении поста:', error); 
     }
